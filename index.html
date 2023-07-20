@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Beginners Guide to React Introduction | egghead.io</title>
+    <link rel="icon" type="image/x-icon" href="./src/assets/egg.png">
+    <link rel="stylesheet" href="./dist/output.css">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+</head>
+<body class="bg-white dark:bg-gray-900 ">
+    <header class="flex flex-row justify-between px-2 lg:px-32 text-white dark:border-b-2  dark:border-[#44444480] h-[48px]">
+        <div class="flex flex-row items-center">
+            <div class="flex flex-row px-3 cursor-pointer items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 34" class="mr-1 sm:w-8 w-7"><g fill="none"><path fill="#FFF" d="M16.556,33.9840112 C9.666,33.993 3.984,28.592 3.641,21.711 L3.641,21.686 C2.38330604,21.5276246 1.35108978,20.6148613 1.04,19.386 C0.679,17.972 0.19,15.86 0.132,13.83 C0.0943730103,12.6557373 0.771608539,11.5756395 1.845,11.098 C2.899,10.625 4.402,10.238 6.297,9.945 C7.357,7.495 8.608,5.365 9.931,3.76 C11.992,1.265 14.221,0 16.556,0 C18.891,0 21.118,1.265 23.176,3.761 C24.493,5.366 25.749,7.493 26.807,9.938 C28.689,10.222 30.19,10.611 31.273,11.093 C32.3458049,11.568777 33.0234964,12.6469944 32.987,13.82 C32.929,15.861 32.441,17.974 32.08,19.385 C31.7694332,20.6162666 30.7350536,21.5307296 29.475,21.688 L29.475,21.711 C29.1224003,28.5910063 23.4390344,33.9872358 16.55,33.983 L16.555,33.9840112 L16.556,33.9840112 Z"></path><path fill="#FCFBFA" d="M16.548,2.15 C22.531,2.15 27.382,15.01 27.382,20.994 C27.382,26.978 22.532,31.829 16.547,31.829 C10.564,31.829 5.713,26.979 5.713,20.994 C5.714,15.01 10.565,2.15 16.548,2.15 Z"></path><path fill="#252526" d="M30.286,12.529 L25.866,14.088 C25.866,14.088 26.55,16.168 26.556,16.183 C26.563,16.199 30.96,15.616 30.96,15.616 L30.286,12.529 Z M2.81,12.529 L7.23,14.088 C7.23,14.088 6.547,16.168 6.54,16.183 C6.534,16.199 2.138,15.616 2.138,15.616 L2.811,12.529 L2.81,12.529 Z"></path><path fill="#E0E0E0" d="M12,12.16 C12.6891044,12.1438469 13.2841428,12.6393563 13.393,13.32 C13.533,14.072 13.626,14.833 13.67,15.598 C13.674206,15.8121531 13.6547548,16.026116 13.612,16.236 C13.5608848,15.7224979 13.4881536,15.2113778 13.394,14.704 C13.2851428,14.0233563 12.6901044,13.5278469 12.001,13.544 C10.341,13.561 8.681,13.687 7.037,13.922 C7.193,13.438 7.36,12.952 7.539,12.472 C9.0184704,12.2793603 10.5081178,12.1751751 12,12.16 L12,12.16 Z M27.362,20.513 C23.46,20.312 20.127,19.063 19.375,18.617 C18.788,18.337 18.04,17.742 17.825,16.255 C17.681,17.893 17.99,19.385 19.528,20.122 C19.641,20.19 22.585,21.647 27.336,21.897 C27.3743575,21.4367026 27.3830422,20.9744133 27.362,20.513 L27.362,20.513 Z M5.746,20.513 C9.648,20.312 12.981,19.063 13.733,18.617 C14.32,18.337 15.068,17.742 15.283,16.255 C15.427,17.893 15.118,19.385 13.58,20.122 C13.467,20.19 10.523,21.647 5.772,21.897 C5.73364246,21.4367026 5.72495783,20.9744133 5.746,20.513 Z M21.085,12.16 C20.3958956,12.1438469 19.8008572,12.6393563 19.692,13.32 C19.552,14.072 19.46,14.833 19.416,15.598 C19.411294,15.8121706 19.4307502,16.026189 19.474,16.236 C19.529,15.685 19.605,15.16 19.691,14.704 C19.800666,14.023817 20.3952023,13.5287257 21.084,13.544 C22.745,13.561 24.404,13.687 26.048,13.922 C25.8916915,13.4349199 25.7243148,12.9514614 25.546,12.472 C24.0668607,12.2794 22.5775483,12.1752149 21.086,12.16 L21.085,12.16 Z"></path><path fill="#56555C" d="M7.071,10.988 C8.135,8.408 9.411,6.175 10.761,4.531 C12.6,2.301 14.546,1.171 16.545,1.171 C18.545,1.171 20.491,2.301 22.329,4.529 C23.684,6.171 24.965,8.404 26.019,10.987 L26.071,11.119 L25.939,11.1 C25.563,11.05 25.258,11.014 24.885,10.968 L24.838,10.968 L24.82,10.926 C23.623,8.132 21.58,4.483 18.941,2.959 C18.2180927,2.51884066 17.3912212,2.2786476 16.545,2.263 C15.6991196,2.27882404 14.8726156,2.51901057 14.15,2.959 C11.517,4.481 9.48,8.113 8.273,10.922 L8.255,10.964 L8.209,10.964 C7.833,11.004 7.527,11.041 7.154,11.096 L7.023,11.115 L7.071,10.988 L7.071,10.988 Z M27.486,19.164 C27.192,19.156 26.896,19.144 26.604,19.127 L26.514,19.127 L26.502,19.036 C26.238,16.982 25.648,14.576 24.828,12.265 L24.775,12.092 L24.953,12.116 C25.288,12.161 25.612,12.211 25.928,12.264 L25.993,12.274 L26.014,12.336 C26.804,14.644 27.364,17.025 27.604,19.041 L27.619,19.173 L27.486,19.163 L27.486,19.164 Z"></path><path fill="#252526" d="M26.52,13.96 C26.360779,13.4156783 26.1897385,12.8748837 26.007,12.338 L25.987,12.276 L25.922,12.265 C25.611,12.212 25.282,12.162 24.947,12.117 L24.775,12.092 L24.835,12.262 C25.016,12.774 25.186,13.29 25.345,13.808 C25.907,13.873 26.225,13.918 26.52,13.96 L26.52,13.96 Z"></path><path fill="#56555C" d="M5.572,18.995 C5.812,16.979 6.377,14.598 7.162,12.29 L7.183,12.228 L7.248,12.216 C7.559,12.164 7.888,12.113 8.223,12.069 L8.401,12.045 L8.341,12.214 C7.523,14.525 6.929,16.929 6.668,18.984 L6.656,19.076 L6.566,19.076 C6.273,19.093 5.976,19.105 5.684,19.112 L5.552,19.112 L5.572,18.995 L5.572,18.995 Z"></path><path fill="#252526" d="M7.248,12.216 L7.183,12.226 L7.163,12.289 C6.98025357,12.8268881 6.80921322,13.3686826 6.65,13.914 C7.2,13.844 7.359,13.852 7.819,13.803 C7.981,13.276 8.155,12.739 8.346,12.213 L8.406,12.045 L8.227,12.069 C7.89999558,12.1134214 7.57363016,12.1624262 7.248,12.216 L7.248,12.216 Z"></path><path fill="#56555C" d="M16.548,32.802 C11.6950457,32.802368 7.33549873,29.8349252 5.556,25.32 C4.95803562,23.7900989 4.68162524,22.1534226 4.744,20.512 L4.744,20.438 L4.818,20.438 C5.203,20.428 5.466,20.418 5.74,20.404 L5.826,20.404 L5.826,20.489 C5.61387559,24.9551461 8.19420614,29.0844695 12.3013673,30.8515816 C16.4085284,32.6186937 21.1810255,31.6529351 24.278,28.428 C25.2593494,27.4101114 26.0276881,26.2066075 26.538,24.888 C27.082,23.488 27.325,21.99 27.254,20.491 L27.254,20.405 L27.34,20.405 C27.723,20.425 27.987,20.433 28.262,20.439 L28.336,20.439 L28.336,20.513 C28.4039497,22.1520989 28.1340233,23.7876557 27.543,25.318 C25.7675295,29.8366926 21.405984,32.8070829 16.551,32.8040024 L16.548,32.8040024 L16.548,32.802 Z"></path><path fill="#252526" d="M5.863,21.898 C5.825,21.428 5.815,20.955 5.834,20.483 L5.834,20.397 L5.748,20.397 C5.472,20.412 5.208,20.422 4.826,20.432 L4.752,20.432 L4.752,20.505 C4.736,20.979 4.746,21.453 4.784,21.925 L4.819,21.925 C5.175,21.925 5.523,21.909 5.854,21.893 L5.863,21.898 L5.863,21.898 Z M28.345,20.437 L28.271,20.437 C27.992,20.437 27.728,20.422 27.349,20.403 L27.263,20.403 L27.263,20.488 C27.283,20.956 27.273,21.424 27.236,21.89 L28.316,21.937 C28.354,21.464 28.364,20.991 28.348,20.517 L28.345,20.437 L28.345,20.437 Z"></path><path fill="#252526" d="M28.954,20.678 C26.6952475,20.6864276 24.445226,20.3972736 22.262,19.818 C21.322,19.571 20.407,19.238 19.528,18.827 L19.507,18.811 C17.662,17.929 17.594,16.161 17.766,14.549 C17.809,14.142 17.66,13.603 17.231,13.317 C16.8217025,13.0439161 16.2882975,13.0439161 15.879,13.317 C15.449,13.601 15.3,14.139 15.343,14.545 C15.515,16.158 15.443,17.926 13.603,18.808 L13.582,18.818 C12.7024943,19.2342431 11.7870861,19.5699486 10.847,19.821 C8.66377172,20.4002622 6.41375178,20.689416 4.155,20.681 L4.145,20.681 C3.20778056,20.6696199 2.39589547,20.0281608 2.168,19.119 C1.818,17.766 1.351,15.739 1.297,13.837 C1.27273427,13.0757044 1.7114252,12.3753797 2.407,12.065 C4.947,10.938 10.089,10.514 12.282,10.543 C13.047,10.537 13.782,10.841 14.32,11.385 C15.0216745,11.0561128 15.785163,10.8798969 16.56,10.868 C17.3346989,10.8792095 18.0981933,11.054745 18.8,11.383 C19.3336751,10.84257 20.0624847,10.5398004 20.822,10.543 C22.14,10.523 27.806,10.768 30.705,12.058 C31.3996549,12.3656831 31.838584,13.0636199 31.815,13.823 C31.761,15.728 31.288,17.766 30.949,19.116 C30.7211045,20.0251608 29.9092194,20.6666199 28.972,20.678 L28.954,20.678 L28.954,20.678 Z M21.098,12.244 C20.4473812,12.2295607 19.8855629,12.6966761 19.781,13.339 C19.641,14.089 19.549,14.846 19.504,15.607 C19.494,16.477 19.806,17.072 20.426,17.377 C22.75,18.413 25.45,18.925 28.681,18.941 C28.9286853,18.9397268 29.1447252,18.7724701 29.208,18.533 C29.515,17.333 29.929,15.548 29.977,13.907 C29.9821038,13.74977 29.891037,13.6052509 29.747,13.542 C27.543,12.551 22.82,12.212 21.098,12.239 L21.098,12.244 L21.098,12.244 Z M3.348,13.539 C3.20435474,13.6025589 3.11372656,13.7470099 3.119,13.904 C3.167,15.541 3.581,17.331 3.888,18.53 C3.95,18.77 4.167,18.938 4.415,18.939 C7.649,18.923 10.345,18.411 12.676,17.373 C13.298,17.07 13.609,16.473 13.599,15.6 C13.5541546,14.8398962 13.4613028,14.0833876 13.321,13.335 C13.2163861,12.692292 12.6539949,12.2250549 12.003,12.24 C11,12.224 5.845,12.427 3.349,13.54 L3.348,13.539 Z"></path></g></svg>
+                <h3 class="font-sans text-[16px] md:text-[20px] font-semibold text-[#0A0F19] dark:text-white">egghead.io</h3>
+            </div>
+              <button class="flex flex-row items-center px-2 h-full text-[#0A0F19] dark:text-white hover:bg-[#48484835] cursor-pointer" id="browse">
+                  <span class="text-[14px] font-normal pr-1 ">Browse</span>
+                  <svg class="w-2 h-2 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                  </svg>
+              </button>                            
+          </div>
+        <div class="nav-text duration-500 md:static absolute bg-[#F9FAFB] dark:bg-[#1F2937] md:dark:bg-transparent md:bg-transparent min-h-[20vh] md:min-h-[24px] left-0 w-full md:w-auto xs:top-[6.5%] md:top-0 hidden md:flex md:flex-row  md:items-center md:justify-center px-4"> 
+            <div class=" flex flex-col md:flex-row md:items-center">
+                <div  class="flex flex-row md:hidden lg:flex lg:flex-row items-center justify-start md:border-r-[2px] h-full  xs:border-[#374150] border-[#F9FAFB] md:dark:border-[#44444480]">
+                  <input type="search" name="search" id="search" class="bg-transparent text-[#0A0F19] dark:text-white tracking-wide outline-none text-[14px] font-normal w-[160px] md:w-[230px] h-8" placeholder="Search for Anything">
+                  <div class="py-2 hover:bg-[#48484835] cursor-pointer text-[#0A0F19] dark:text-white">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[16px] h-[16px] md:w-[18px] md:h-[18px] mx-2 md:m-3">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                        </svg>
+                  </div>                  
+                </div>
+                <div  class="flex flex-col-reverse md:flex-row items-start md:items-center">
+                    <button class="mb-4 md:mb-0 md:mx-2 px-2 py-1 tracking-tight bg-[#2563EB] hover:bg-[#1b4cb7] rounded-[6.4px] font-normal text-[14px]">Enroll Today</button>
+                    <button class="px-2 py-3 hover:bg-[#48484835] text-[14px] font-normal text-[#0A0F19] dark:text-white">Sign in</button>
+                </div>                           
+            </div>
+        </div>
+        <ion-icon name="menu" class="text-2xl cursor-pointer md:hidden p-2 text-[#0A0F19] dark:text-white" onclick="menuToggle(this)"></ion-icon>  
+    </header>
+    <main class="flex flex-col">
+        <div class="flex flex-col lg:flex-row">
+            <iframe class="lg:px-[5.6rem] object-cover h-[216px] md:h-[480px] lg:object-cover  lg:h-[588px] 2xl-[600px] lg:w-[72.5%] xl:w-[80%] bg-black" src="https://www.youtube.com/embed/kqtD5dpn9C8" title="Learn Python in 1 Hour" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+            <div class="flex flex-col w-full lg:w-[27.5%] h-[392px] xs:[400px] md:h-[520px] lg:h-[588px] bg-gray-100  dark:bg-[#0A0F19]  text[#111827] dark:text-white py-4 relative">
+                <div class="flex flex-row px-4 pb-4 items-center  border-b-2 border-[#6a6a6a23]">
+                    <img src="https://egghead.io/_next/image?url=https%3A%2F%2Fd2eip9sf3oo6c2.cloudfront.net%2Fplaylists%2Fsquare_covers%2F000%2F432%2F490%2Fsquare_480%2FEGH_BeginnersReact2.png&w=1920&q=75" alt="" class="md:w-[80px] md:h-[80px] w-[48px] h-[48px]">
+                    <div class="px-2 md:px-3 leading-5">
+                        <h3 class="font-medium text-[12px] text-[#374151] dark:text-white">COURSE</h3>
+                        <span class="font-bold text-[16px] md:text-[21px] leading-4 md:leading-5 tracking-tight text-[#111827] dark:text-white hover:underline">The Beginner's Guide to React</span>
+                    </div>
+                </div>
+                <div class="overflow-scroll overflow-y-scroll overflow-x-hidden scrollEffect">
+                  <div class="flex flex-row bg-[#2563EB] py-[13px] text-[#f3f4f6a0] active:text-white hover:text-white active:bg-[#2563EB] ">
+                      <span class="px-3 text-[12px] pt-1">1</span>
+                      <div class="flex flex-col leading-[22px]">
+                        <span class="text-white font-medium">A Beginners Guide to React Introduction</span>
+                        <span class="text-[13px] text-white dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">5m 46s</span>
+                      </div>  
+                  </div>   
+                  <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                      <span class="px-3 text-[12px] pt-1">2</span>
+                      <div class="flex flex-col leading-[22px]">
+                        <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Create a User Interface with Vanilla JavaScript and DOM</span>
+                        <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">1m 32s</span>
+                      </div>  
+                  </div>
+                  <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                      <span class="px-3 text-[12px] pt-1">3</span>
+                      <div class="flex flex-col leading-[22px]">
+                        <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Create a User Interface with React's createElement API</span>
+                        <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">4m 29s</span>
+                      </div>  
+                  </div>     
+                  <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                      <span class="px-3 text-[12px] pt-1">4</span>
+                      <div class="flex flex-col leading-[22px]">
+                        <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Create a User Interface with React's JSX syntax</span>
+                        <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">3m 19s</span>
+                      </div>  
+                  </div> 
+                  <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                      <span class="px-3 text-[12px] pt-1">5</span>
+                      <div class="flex flex-col leading-[22px]">
+                        <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Use JSX effectively with React</span>
+                        <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">5m 47s</span>
+                      </div>  
+                  </div> 
+                  <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                      <span class="px-3 text-[12px] pt-1">6</span>
+                      <div class="flex flex-col leading-[22px]">
+                        <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Render two elements side-by-side with React Fragments</span>
+                        <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">3m 6s</span>
+                      </div>  
+                  </div> 
+                  <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                      <span class="px-3 text-[12px] pt-1">7</span>
+                      <div class="flex flex-col leading-[22px]">
+                        <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Create a Simple Reusable React Component</span>
+                        <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">5m 10s</span>
+                      </div>  
+                  </div> 
+                  <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                        <span class="px-3 text-[12px] pt-1">8</span>
+                        <div class="flex flex-col leading-[22px]">
+                          <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Validate Custom React Component Props with PropTypes</span>
+                          <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">4m 14s</span>
+                        </div>  
+                    </div>
+                    <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                        <span class="px-3 text-[12px] pt-1">9</span>
+                        <div class="flex flex-col leading-[22px]">
+                          <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Understand and Use Interpolation in JSX</span>
+                          <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">6m 32s</span>
+                        </div>  
+                    </div>     
+                    <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                        <span class="px-3 text-[12px] pt-1">10</span>
+                        <div class="flex flex-col leading-[22px]">
+                          <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Rerender a React Application</span>
+                          <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">3m 19s</span>
+                        </div>  
+                    </div> 
+                    <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                        <span class="px-3 text-[12px] pt-1">11</span>
+                        <div class="flex flex-col leading-[22px]">
+                          <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Style React Components with className and inline Styles</span>
+                          <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">10m 43s</span>
+                        </div>  
+                    </div> 
+                    <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                        <span class="px-3 text-[12px] pt-1">12</span>
+                        <div class="flex flex-col leading-[22px]">
+                          <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Use Event Handlers with React</span>
+                          <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">4m 7s</span>
+                        </div>  
+                    </div> 
+                    <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                        <span class="px-3 text-[12px] pt-1">13</span>
+                        <div class="flex flex-col leading-[22px]">
+                          <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Manage state in a React Component with the useState Hook</span>
+                          <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">4m 17s</span>
+                        </div>  
+                    </div>
+                    <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                      <span class="px-3 text-[12px] pt-1">14</span>
+                      <div class="flex flex-col leading-[22px]">
+                        <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Manage side-effects in a React Component with the useEffect hook</span>
+                        <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">2m 49s</span>
+                      </div>  
+                  </div>
+                  <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                      <span class="px-3 text-[12px] pt-1">15</span>
+                      <div class="flex flex-col leading-[22px]">
+                        <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Use a lazy initializer with useState</span>
+                        <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">2m 20s</span>
+                      </div>  
+                  </div>     
+                  <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                      <span class="px-3 text-[12px] pt-1">16</span>
+                      <div class="flex flex-col leading-[22px]">
+                        <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Manage the useEffect dependency array</span>
+                        <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">3m 49s</span>
+                      </div>  
+                  </div> 
+                  <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                    <span class="px-3 text-[12px] pt-1">17</span>
+                    <div class="flex flex-col leading-[22px]">
+                      <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Create reusable custom hooks</span>
+                      <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">4m 11s</span>
+                    </div>  
+                </div> 
+                  <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                        <span class="px-3 text-[12px] pt-1">18</span>
+                        <div class="flex flex-col leading-[22px]">
+                          <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Manipulate the DOM with React refs</span>
+                          <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">6m 5s</span>
+                        </div>  
+                    </div> 
+                    <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                        <span class="px-3 text-[12px] pt-1">19</span>
+                        <div class="flex flex-col leading-[22px]">
+                          <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Understand the React Hook Flow</span>
+                          <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">11m 4s</span>
+                        </div>  
+                    </div> 
+                    <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                      <span class="px-3 text-[12px] pt-1">20</span>
+                      <div class="flex flex-col leading-[22px]">
+                        <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Make Basic Forms with React</span>
+                        <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">9m 9s</span>
+                      </div>  
+                  </div>
+                  <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                      <span class="px-3 text-[12px] pt-1">21</span>
+                      <div class="flex flex-col leading-[22px]">
+                        <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Make Dynamic Forms with React</span>
+                        <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">3m 10s</span>
+                      </div>  
+                  </div>     
+                  <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                      <span class="px-3 text-[12px] pt-1">22</span>
+                      <div class="flex flex-col leading-[22px]">
+                        <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Controlling Form Values with React</span>
+                        <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">2m 33s</span>
+                      </div>  
+                  </div> 
+                  <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                      <span class="px-3 text-[12px] pt-1">23</span>
+                      <div class="flex flex-col leading-[22px]">
+                        <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Using React Error Boundaries to handle erros in React Components</span>
+                        <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">7m 37s</span>
+                      </div>  
+                  </div> 
+                  <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                      <span class="px-3 text-[12px] pt-1">24</span>
+                      <div class="flex flex-col leading-[22px]">
+                        <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Use the key prop when Rendering a List with React</span>
+                        <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">7m 18s</span>
+                      </div>  
+                  </div> 
+                  <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                      <span class="px-3 text-[12px] pt-1">25</span>
+                      <div class="flex flex-col leading-[22px]">
+                        <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Lifting and colocating React State</span>
+                        <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">4m 56s</span>
+                      </div>  
+                  </div>  
+                  <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                    <span class="px-3 text-[12px] pt-1">26</span>
+                    <div class="flex flex-col leading-[22px]">
+                      <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Make HTTP Requests with React</span>
+                      <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">4m 3s</span>
+                    </div>  
+                </div>
+                <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                      <span class="px-3 text-[12px] pt-1">27</span>
+                      <div class="flex flex-col leading-[22px]">
+                        <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Handle HTTP Erros with React</span>
+                        <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">4m 1s</span>
+                      </div>  
+                  </div>     
+                <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                      <span class="px-3 text-[12px] pt-1">28</span>
+                      <div class="flex flex-col leading-[22px]">
+                        <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Install and use React DevTools</span>
+                        <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">6m 31s</span>
+                      </div>  
+                  </div> 
+                <div class="group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                    <span class="px-3 text-[12px] pt-1">29</span>
+                    <div class="flex flex-col leading-[22px]">
+                      <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">Build and deploy a React Application with Codesandbox, GitHub, and Netlify</span>
+                      <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">4m 30s</span>
+                    </div>  
+                </div> 
+                <div class="mb-10 group flex flex-row bg-transparent py-[13px] hover:bg-blue-50 hover:text-blue-600 text-[#111827] dark:text-[#f3f4f6a0]  dark:hover:text-white  dark:hover:bg-[#5a638e46]">
+                    <span class="px-3 text-[12px] pt-1">30</span>
+                    <div class="flex flex-col leading-[22px]">
+                      <span class="text-[#111827] group-hover:text-blue-600 dark:text-white dark:group-hover:text-white font-medium">A Beginners Guide to React Outro</span>
+                      <span class="text-[13px] text-[#374151] group-hover:text-[#374151] dark:text-[#f3f4f6a0] dark:group-hover:text-white font-medium">3s</span>
+                    </div>  
+                </div>                               
+              </div>
+              <div class="absolute bottom-0 flex flex-row w-full bg-gray-100 dark:bg-slate-800 ">
+                <span class="font-normal text-[12px] dark:text-[0.70rem] tracking-tight px-2 py-5 mx-1 text-[#111827] dark:text-white">AUTOPLAY</span>
+                <button 
+                        class="w-[40px] h-6 my-4 rounded-full  switchButton flex items-center transition duration-300 focus:outline-none shadow"
+                        onclick="toggleTheme()">
+                        <div
+                            id="switch-toggle"
+                            class="w-[18px] h-[18px] relative rounded-full transition duration-500 transform bg-white translate-x-[0.125rem] py-1 text-[7px]">
+                            <span id="switch-name" class="text-blue-700 hover:text-black py-1">OFF</span>
+                        </div>
+                </button>
+              </div>
+          </div>
+        </div>
+        <div class="mx-[12px] px-[8px] md:mx-[32px] md:px-[24px] lg:mx-[64px] lg:px-[56px] xl:mx-[184px] xl:px-[96px] text-white mb-[72px]">
+          <div class="flex flex-row items-center pt-[56px] lg:pt-[70px] mb-[20px]">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-[14px] h-[14px] md:w-4 md:h-4 rounded-full border-2 border-white p-[2px]  absolute left-[1%] mb-8 md:mb-0 md:left-[3%] lg:left-[10%] xl:left-[17%] bg-transparent">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" id="ckeck-button" />
+              </svg>                      
+              <h1 class="md:font-extrabold font-extrabold tracking-tight md:tracking-normal text-[24px] md:text-3xl lg:text-4xl lg:tracking-wide text-[#111827] dark:text-white">A Beginners Guide to React Introduction</h1>
+          </div>
+          <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center mb-4 text-[#111827] dark:text-white">
+            <div class="flex flex-col justify-center lg:justify-between lg:flex-row lg:items-center">
+              <div class="flex flex-row items-center mb-4 lg:mb-0">
+                <img src="./src/assets/kent_C_dodds.png" alt="kent C dodds" class="w-[48px] h-[48px] rounded-full">
+                <div class="flex flex-col leading-5 lg:leading-4 px-2">
+                  <span class="text-[12px]">Instructor</span>
+                  <span class="hover:underline text-[16px] font-normal">Kent C. Dodds</span>
+                </div>
+              </div>            
+              <div class="flex flex-row items-center hover:underline">
+                <img src="./src/assets/react.png" alt="react" class="w-[32.5px] h-[22.5px]">
+                <span class="text-[14px]">React</span>
+                <span class="text-[11.2px] px-2">>=16.12.0 - 17</span>
+              </div>
+            </div>
+            <div class="flex flex-col md:flex-row text-[14px] md:items-center mt-6 lg:mt-0 mb-2 lg:mb-0">
+              <span class="mb-2 md:mb-0">Share this video with your friends</span>
+              <div class="flex flex-row items-center ">
+                <button class=" flex items-center p-[8px] hover:bg-blue-100 dark:hover:bg-gray-600 hover:text-blue-600 dark:text-white  bg-[#F9FAFB] dark:bg-[#1F2937] mx-2 w-fit rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class=" w-5"><g fill="currentColor"><path fill="none" d="M0 0h24v24H0z"></path><path d="M22.162 5.656a8.384 8.384 0 0 1-2.402.658A4.196 4.196 0 0 0 21.6 4c-.82.488-1.719.83-2.656 1.015a4.182 4.182 0 0 0-7.126 3.814 11.874 11.874 0 0 1-8.62-4.37 4.168 4.168 0 0 0-.566 2.103c0 1.45.738 2.731 1.86 3.481a4.168 4.168 0 0 1-1.894-.523v.052a4.185 4.185 0 0 0 3.355 4.101 4.21 4.21 0 0 1-1.89.072A4.185 4.185 0 0 0 7.97 16.65a8.394 8.394 0 0 1-6.191 1.732 11.83 11.83 0 0 0 6.41 1.88c7.693 0 11.9-6.373 11.9-11.9 0-.18-.005-.362-.013-.54a8.496 8.496 0 0 0 2.087-2.165z"></path></g></svg>Send Tweet</button>
+                <button class="flex flex-row items-center p-[8px] hover:text-blue-600 dark:text-white hover:bg-blue-100 dark:hover:bg-gray-600 bg-[#F9FAFB] dark:bg-[#1F2937] mx-2 w-fit rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>Copy Link</button>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col items-center md:items-start text-[14px] text-[#9c9797] font-medium mb-[18px]">
+            <span>Published 3 years ago</span>
+            <span>Updated 2 years ago</span>
+          </div>
+          <p class="text-[18px] text-[#0A0F19] dark:text-white font-semibold mb-[18px] leading-8">Welcome to The Beginner’s Guide to React! I’m happy you’re here. I recommend that you watch all of these videos through once without touching the keyboard. Just take notes. Then you can watch them a second time and follow along and change/break the code and review the bits that you need. I’ll show you how I get things up and running, but feel free to copy/paste the code to an environment where you feel comfortable.</p>
+          <button class="flex flex-row items-center px-3 py-2 text-white dark:text-[#111827] font-semibold bg-[#111827] dark:bg-[#F3F4F6] hover:bg-gray-700 dark:hover:bg-[#bfbebe]  ease-in-out duration-300 rounded-lg" onclick="navigateToCode()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-[22px] h-[18px] mr-1">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+          </svg>
+          View code for this lesson</button>
+        </div>
+        <div class="mx-[16px] md:mx-[32px] px-[24px] lg:mx-[32px] lg:px-[56px] xl:mx-[184px] xl:px-[96px] mb-[10px] flex lg:hidden flex-row pb-4  items-center">
+            <img src="https://egghead.io/_next/image?url=https%3A%2F%2Fd2eip9sf3oo6c2.cloudfront.net%2Fplaylists%2Fsquare_covers%2F000%2F432%2F490%2Fsquare_480%2FEGH_BeginnersReact2.png&w=1920&q=75" alt="" class="lg:w-[80px] lg:h-[80px] w-[56px] h-[56px]">
+            <div class="px-2 md:px-3 leading-5">
+                <h3 class="font-medium text-[12px] text-[#374151] dark:text-white">COURSE</h3>
+                <span class=" font-bold md:font-medium lg:font-bold text-[16px] md:text-[18px] lg:text-[21px] leading-4 md:leading-5 tracking-tight hover:underline text-[#111827] dark:text-white">The Beginner's Guide to React</span>
+            </div>
+        </div>
+        <div class="mytabs flex flex-wrap mx-[12px] md:mx-[24px] md:px-[20px] lg:mx-[32px] lg:px-[56px] xl:mx-[184px] xl:px-[96px] mb-[10px] text-white h-fit">
+          <input type="radio" id="tabtranscript" name="mytabs" checked="checked" class="peer">
+          <label class="text-[16px] font-semibold text-[#374151] dark:text-[#D1D5D8] bg-transparent hover:bg-[#F9FAFB] px-3  py-2 rounded-t-lg dark:hover:bg-black cursor-pointer  hover:border-b-[1px] hover:border-[#F9FAFB] dark:hover:border-black peer-checked:bg-[#F9FAFB] peer-checked:border-b-[1px] peer-checked:border-gray-300 dark:peer-checked:border-[#374151]  dark:peer-checked:bg-[#0A0F19]" for="tabtranscript" >Transcript</label>
+          <div class="tab bg-[#F9FAFB] dark:bg-[#0A0F19] p-[28px] text-[15px] text-[#1F2937] dark:text-[#F3F4F6] font-bright tracking-wide rounded-r-lg rounded-b-lg">
+            <p class="para">Kent C. Dodds: [0:00] What is up, folks? My name is Kent C. Dodds, and I am super excited to be your teacher here on egghead.io, where I'm going to take you through the Beginner's Guide to React JS. We're going to start from the very, very beginning.</p>
+            <p class="para">[0:11] Whether you've been doing React for a long time, you just want to sharpen yourself on the fundamentals or you've never done any React before and you're just curious, this is going to be a perfect place for you because we're going to start with a totally blank slate.</p>
+            <p class="para">[0:24] When we're using React, we're using a bunch of other tools in the ecosystem around it. You've got a router, you've got state management, you've got the building tools like webpack or parser or whatever it is that you're using.</p>
+            <p class="para">[0:35] When you're using all these tools, it can be pretty difficult to isolate what is React and what is it doing for me. If you don't isolate it effectively, then you can't use it very effectively.</p>
+            <p class="para">[0:46] We start out with a literal blank index.html file. We write some HTML in it. We write some JavaScript directly in that HTML file. Then, poof. All of a sudden, we're writing some JavaScript to create DOM nodes. We're inserting those DOM nodes into the page. We are making it dynamic. It's awesome.</p>
+            <p class="para">[1:03] Then, we switch over from regular JavaScript to React, so you get a good sense of what piece of this puzzle is React solving and how can I use it most effectively in building applications.</p>
+            <p  class="para">[1:15] Then, we upgrade to JSX. I'll show you some tricks of JSX. We go all the way through forms and HTTP, error handling, all of that stuff. You're going to love this.</p>
+            <p class="para">[1:27] When we get down to the very end, we're going to use some awesome tools like CodeSandbox, GitHub, and Netlify to deploy our application to the world. You can show it to your friends, family, your dog, and whoever it is that you want to show this to. You'll be so excited that you've built something that is available on the World Wide Web with React. It's super, super cool.</p>
+            <p class="para">[1:50] Let's go ahead. We'll dive into the workshop stuff so that you can see where the files are, how to get things up and running if you want to follow along, or if you just want to tinker with things as we go. Then, we can get into this awesome workshop that I've prepared for you.</p>
+            <p class="para">[2:06] The workshop is available to you on GitHub. You'll find it on my GitHub, kentcdodds/beginners-guide-to-react. I recommend that you switch the branch to egghead. That way, you make sure that the stuff that you're working with is exactly the same stuff that I recorded in the course and if we make any changes in the future, that will have them on the master branch. The egghead branch will always be exactly what you see me do in the course.</p>
+            <p class="para">[2:32] The course is just a bunch of HTML files, plus this start script that we'll take a look at. You can download this using Git if you're comfortable with that or you can just click Download ZIP and that will download the ZIP file to your computer. You can open that up and extract that and this is what you're going to find at the end of the day.</p>
+            <p class="para">[2:49] I am using VS Code. You can feel free to use Sublime or text editor or whatever it is that you want to, but I recommend VS Code and it's great. We've got each one of the lessons right here as HTML files that you can go through.</p>
+            <p class="para">[3:04] The HTML file that's available here is the finished version of our code. You can work through each one of these after watching the video, tinker around with it a little bit.</p>
+            <p class="para">[3:15] To get things up and going, you can just open this up, so we can click on Reveal in Finder here. We can double click on that and it will just open it right up in the browser for you. That will work for lots of this, but some of these lessons require that you're running a real server.</p>
+            <p class="para">[3:35] There are a couple ways that you can do that if you can figure out how to make that work yourself. I have the start script and that's what I'm using. We're using a tool called Browsersync. We're using npx to get that running. npx comes bundled with Node. If you get Node.js installed, then you can use npx.</p>
+            <p class="para">[3:51] You can just copy and paste this in a terminal window. That will get Browsersync up and running and then you can open up localhost:3000, where that will show you a listing of all the files. We'll go ahead and click on this first one.</p>
+            <p class="para">[4:04] Typically, in the workshop, I've got this open up side-by-side with my code editor. You're going to have it look a little bit like this. Here, you'll notice that I can hit save key and it automatically reloads.</p>
+            <p class="para">[4:19] We'll also want to have our developer tools open. I've got our developer tools right here. I have that up here at the bottom. We have two scripts in here that you don't find in the source code. That's added by Browsersync.</p>
+            <p class="para">[4:34] The cool thing about Browsersync is that you don't have to manually hit the reload button, you just go ahead and change something, hit save and it will automatically reload for you. That's why we're going with Browsersync. It's really nice for this.</p>
+            <p class="para">[4:50] You can feel free to play around with this stuff. As we go, you can clear this stuff out and type it out yourself or you can just wait until I go through the material and then you tinker around with the finished product, or you can just watch through the whole thing, take notes and then go through it again later on your own.</p>
+            <p class="para">[5:08] Whatever works best for you, I do recommend that the first time you go through this, you just watch and take notes because that typically ends up in a better experience for most people, but you do it however you want to.</p>
+            <p class="para">[5:19] I can't tell you how excited I am for you to go through this. I've worked hard to try to make this as approachable as possible, give you a deep foundational understanding without getting too much in the weeds. I can't wait to see the cool things that you build with this knowledge that you acquire through going through this material.</p>
+            <p class="para">[5:36] Please do let me know what you build and what you create with this knowledge of React. I can't wait for you to experience this. Let's go ahead and jump into the course.</p>
+          </div>
+          <input type="radio" id="tabcomments" name="mytabs"  class="peer">
+          <label class="lg:text-[16px] font-semibold text-[#374151] bg-transparent dark:text-[#D1D5D8] px-3 ml-[4px] py-2 rounded-t-lg hover:bg-[#F9FAFB] dark:hover:bg-black cursor-pointer hover:border-b-[1px] hover:border-[#F9FAFB] dark:hover:border-black peer-checked:bg-[#F9FAFB] peer-checked:border-b-[1px] peer-checked:border-gray-300 dark:peer-checked:border-[#374151]  dark:peer-checked:bg-[#0A0F19] "  for="tabcomments">Comments <span>(6)</span></label>
+          <div class="tab bg-[#F9FAFB] dark:bg-[#0A0F19] text-[#111827] dark:text-white px-[10px] md:px-[28px] pt-[28px] text-[15px] font-bright tracking-wide rounded-r-lg rounded-b-lg ">
+            <div class="flex flex-row items-start mb-[15px]">
+              <img src="./src/assets/yariv.png" alt="yariv" class="w-[48px] h-[48px] rounded-full">
+              <div class="px-4 flex flex-col">
+                <span class="text-[14px] md:text-[16px] font-medium text-black dark:text-white">Yariv <span class="text-[12px] text-[#6B7280] font-normal ">~ 3 years ago</span></span>
+                <span class="text-[15px] sm:text-[16px] italic my-[20px] font-medium border-l-4 px-4 border-[#6B7280] dark:border-gray-700">"hi Is this a good place to ask questions, or is there another channel somewhere?"</span>
+              </div>              
+            </div>
+            <div class="flex flex-row items-start my-[40px]">
+              <img src="./src/assets/kent_C_dodds1.png" alt="kent_C_dodds1" class="w-[48px] h-[48px] rounded-full">
+              <div class="px-4 flex flex-col">
+                <span class="text-[14px] md:text-[16px] font-medium text-black dark:text-white">Kent C. Dodds <span class="text-green-600 font-normal text-[14px]">instructor</span> <span class="text-[12px] text-[#6B7280] font-normal ">~ 3 years ago</span></span>
+                <span class="text-[13px] sm:text-[16px] font-normal text-[#374151] dark:text-white">A great community to engage in is: https://www.reactiflux.com/</span>
+              </div>              
+            </div>
+            <div class="flex flex-row items-start my-[40px]">
+              <img src="./src/assets/anonymous.png" alt="" class="w-[48px] h-[48px] rounded-full">
+              <div class="px-4 flex flex-col">
+                <span class="text-[14px] md:text-[16px] font-medium text-black dark:text-white">srinivassaraogurram<span class="text-[12px] text-[#6B7280] font-normal "> ~ a year ago</span></span>
+                <span class="text-[13px] sm:text-[15px] md:text-[16px] font-normal text-[#374151] dark:text-white">Hi Kent, I request to egghead to add the links for the github source code as link as part of the transcript; the will help many folks like me who are beginners to reactjs https://github.com/kentcdodds/beginners-guide-to-react</span>
+              </div>              
+            </div>
+            <div class="flex flex-row items-start my-[40px]">
+              <img src="./src/assets/anonymous.png" alt="" class="w-[48px] h-[48px] rounded-full">
+              <div class="px-4 flex flex-col">
+                <span class="text-[14px] md:text-[16px] font-medium text-black dark:text-white">srinivassaraogurram<span class="text-[12px] text-[#6B7280] font-normal "> ~ a year ago</span></span>
+                <span class="text-[13px] sm:text-[15px] md:text-[16px] font-normal text-[#374151] dark:text-white">https://github.com/kentcdodds/beginners-guide-to-react</span>
+              </div>              
+            </div>
+            <div class="flex flex-row items-start my-[40px]">
+              <img src="./src/assets/anonymous.png" alt="" class="w-[48px] h-[48px] rounded-full">
+              <div class="px-4 flex flex-col">
+                <span class="text-[14px] md:text-[16px] font-medium text-black dark:text-white">srinivassaraogurram<span class="text-[12px] text-[#6B7280] font-normal "> ~ a year ago</span></span>
+                <span class="text-[13px] sm:text-[15px] md:text-[16px]  font-normal text-[#374151] dark:text-white">npx browser-sync start --server --files "./*.html" --no-open --no-notify --directory</span>
+              </div>              
+            </div>
+            <div class="flex flex-row items-start my-[40px]">
+              <img src="./src/assets/anonymous.png" alt="" class="w-[48px] h-[48px] rounded-full">
+              <div class="px-4 flex flex-col">
+                <span class="text-[14px] md:text-[16px] font-medium text-black dark:text-white">srinivassaraogurram<span class="text-[12px] text-[#6B7280] font-normal "> ~ a year ago</span></span>
+                <span class="text-[23px] md:text-[24px] font-bold border-gray-700">In my case it is showing following message; and running on port 3001; [Browsersync] Access URLs:</span>
+                <div class="bg-gray-800 flex flex-col text-white text-[12.6px] w-full px-[12px] py-4 text-start justify-start my-6 font-normal rounded-md">
+                  <span class=" tracking-wider mb-2 text-center md:text-start md:px-4">Local: http://localhost:3001</span>
+                  <span class=" tracking-wider text-center md:text-start">External: http://192.168.1.68:3001</span>
+                </div>
+                <hr class="border-t-[1px] dark:border-t-2 border-[[#6B7280]] dark:border-gray-800 my-[24px]">
+                <div class="bg-gray-800 flex flex-col text-white text-[12.6px] w-full px-[12px] py-4 text-start justify-start my-6 font-normal rounded-md">
+                  <span class=" tracking-wider mb-2 text-center md:text-start md:px-8">UI: http://localhost:3002</span>
+                </div>
+                <span class="text-[23px] md:text-[24px]  font-bold  mt-[20px]">UI External: http://localhost:3002</span>
+                <span class="text-[16px] text-[#374151] dark:text-white font-normal mt-[20px]">[Browsersync] Serving files from: ./ [Browsersync] Watching files...</span>
+              </div>              
+            </div>
+          </div> 
+        </div>
+        <div class="flex flex-col md:flex-row items-center lg:items-start md:justify-between bg-gradient-to-b from-[#F9FAFB] dark:from-transparent text-[#111827] dark:text-[#E5E7E8] py-[64px] md:px-[32px] md:py-[56px] lg:mt-14 lg:pt-14 lg:pb-40">
+          <div class="flex flex-col md:flex-row cursor-pointer items-center md:items-start">
+            <img src="./src/assets/egg.png" alt="logo" class="w-[32px] h-[32px]">
+            <span class="w-[256px] mx-2 font-semibold text-[20px] leading-6 text-center lg:text-start mt-6 md:mt-0 mb-10 md:mb-0">Expert led courses for professional front-end web developers.</span>
+          </div>
+          <div class="flex flex-col md:flex-row md:gap-[6rem] lg:gap-[8rem] text-[16px] md:text-[14px]">
+            <div class="flex flex-col gap-1 px-2 items-center md:items-start leading-8 lg:leading-6">
+              <span class="hover:text-blue-600 ease-in-out duration-150">Search</span>
+              <span class="hover:text-blue-600 ease-in-out duration-150">Articles</span>
+              <span class="hover:text-blue-600 ease-in-out duration-150">Talks</span>
+              <span class="hover:text-blue-600 ease-in-out duration-150">Podcasts</span>
+              <span class="hover:text-blue-600 ease-in-out duration-150">Topics</span>
+              <span class="hover:text-blue-600 ease-in-out duration-150">Machine</span>
+            </div>
+            <div class="flex flex-col gap-1 px-2 items-center md:items-start leading-8 lg:leading-6">
+              <span class="hover:text-blue-600 ease-in-out duration-150">Pricing</span>
+              <span class="hover:text-blue-600 ease-in-out duration-150">egghead for teams</span>
+              <span class="hover:text-blue-600 ease-in-out duration-150">Store</span>
+              <span class="hover:text-blue-600 ease-in-out duration-150">support@egghead.io</span>
+            </div>
+          </div>
+        </div>        
+    </main>
+    <footer class="flex flex-row gap-3 items-center md:gap-6 justify-end px-[32px] text-[#6B7280] dark:text-[#D1D5D8] text-[12px] py-[24px]">
+      <span>©egghead.io</span>
+      <span>Terms & Conditions</span>
+      <span>FAQ</span>
+      <span>Dark Mode</span>  
+      <button id="theme-toggle" type="button" class="text-gray-100 hover:text-gray-900 dark:hover:text-black dark:text-gray-900 bg-gray-600 dark:bg-white hover:bg-gray-400 dark:hover:bg-gray-300 focus:outline-none focus:ring-4 focus:ring-transparent dark:focus:ring-transparent rounded-full text-sm p-2.5">
+        <svg id="theme-toggle-light-icon" class="hidden w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>                  
+        <svg id="theme-toggle-dark-icon" class="hidden w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>     
+    </button>
+
+    </footer>
+    <script>
+      const navText = document.querySelector('.nav-text')
+      function menuToggle(e) {
+        e.name= e.name === 'menu' ? 'close' : 'menu'
+        navText.classList.toggle('hidden')
+      }
+
+      const switchButton = document.querySelector('.switchButton');
+
+      const switchToggle = document.querySelector('#switch-toggle');
+
+      const switchName = document.querySelector('#switch-name');
+
+      let isOn = false
+
+      const offIcon = "OFF"
+
+      const onIcon = "ON"
+
+      function toggleTheme (){
+        isOn = !isOn
+        localStorage.setItem('isOn', isOn)
+        switchTheme()
+      }
+
+      function switchTheme (){
+        if (isOn) {
+          switchToggle.classList.add('translate-x-full')
+          switchToggle.classList.remove('translate-x-[0.125rem]')
+          switchButton.classList.remove('bg-gray-700')
+          switchButton.classList.add('bg-blue-700')
+          switchName.innerHTML = "ON"
+        } else {
+          switchToggle.classList.remove('translate-x-full')
+          switchToggle.classList.add('translate-x-[0.125rem]')
+          switchButton.classList.remove('bg-blue-700')
+          switchButton.classList.add('bg-gray-700')
+          switchName.innerHTML = "OFF"
+        }
+      }
+      switchTheme() 
+      
+      const navigateToCode = () => {
+        window.open("https://codesandbox.io/embed/github/kentcdodds/beginners-guide-to-react/tree/codesandbox/01-document-create-element?fontsize=14&hidenavigation=1&theme=dark")
+      }
+
+      const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+      const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+      if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          themeToggleLightIcon.classList.remove('hidden');
+      } else {
+          themeToggleDarkIcon.classList.remove('hidden');
+      }
+
+      let themeToggleBtn = document.getElementById('theme-toggle');
+
+      themeToggleBtn.addEventListener('click', function() {
+
+          // toggle icons inside button
+          themeToggleDarkIcon.classList.toggle('hidden');
+          themeToggleLightIcon.classList.toggle('hidden');
+          
+
+          // if set via local storage previously
+          if (localStorage.getItem('color-theme')) {
+              if (localStorage.getItem('color-theme') === 'light') {
+                  document.documentElement.classList.add('dark');
+                  localStorage.setItem('color-theme', 'dark');
+              } else {
+                  document.documentElement.classList.remove('dark');
+                  localStorage.setItem('color-theme', 'light');
+              }
+
+          // if NOT set via local storage previously
+          } else {
+              if (document.documentElement.classList.contains('dark')) {
+                  document.documentElement.classList.remove('dark');
+                  localStorage.setItem('color-theme', 'light');
+              } else {
+                  document.documentElement.classList.add('dark');
+                  localStorage.setItem('color-theme', 'dark');
+              }
+          }
+          
+      });
+
+      // https://egghead.io/learn - for browse options link
+    </script>
+</body>
+</html>

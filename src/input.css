@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* width */
+.scrollEffect::-webkit-scrollbar {
+	width: 8px;
+}
+
+/* Track */
+.scrollEffect::-webkit-scrollbar-track {
+	background: transparent;
+	background-clip: content-box; 
+}
+
+/* Handle */
+.scrollEffect::-webkit-scrollbar-thumb {
+	background: #7373736a;
+	border-radius: 5px;
+}
+
+.mytabs input[type="radio"] {
+	display: none;
+}
+
+.mytabs .tab {
+	order: 1;
+	display: none;
+}
+
+.mytabs input[type='radio']:checked + label + .tab {
+	display: block;
+}
+
+.para {
+	@apply py-[16px];
+}
+
+
+
+
